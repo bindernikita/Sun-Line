@@ -16,6 +16,10 @@
     header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:6px 0 18px}
 
     .hero-wrap{position:relative;width:100%;border-radius:0;overflow:hidden}
+    /* двуслойное плавное вплавление баннера в фон */
+    .hero-wrap::before{content:"";position:absolute;inset:-10% -10% -30%;pointer-events:none;background:radial-gradient(120% 70% at 50% 100%, rgba(15,15,15,1) 0%, rgba(15,15,15,.85) 35%, rgba(15,15,15,.35) 60%, rgba(15,15,15,0) 80%)}
+    .hero-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(15,15,15,0.25) 0%,rgba(15,15,15,0.75) 75%,#0f0f0f 100%)}
+    .hero{width:100%;height:auto;display:block;object-fit:cover;opacity:0;animation:fadeIn .8s ease .05s forwards}
     .hero-wrap::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(15,15,15,0.3) 0%,rgba(15,15,15,0.9) 90%,#0f0f0f 100%)}
     .hero{width:100%;height:auto;display:block;object-fit:cover;opacity:0;animation:fadeIn .8s ease .05s forwards}
     @keyframes fadeIn{to{opacity:1}}
@@ -68,9 +72,11 @@
       </div>
     </header>
 
-    <figure class="hero-wrap">
-      <img src="sunline-banner.png" alt="Солнечная линия — баннер" class="hero" loading="eager" decoding="async" />
-    </figure>
+    <a href="#booking" style="text-decoration:none;color:inherit">
+      <figure class="hero-wrap" aria-label="Перейти к бронированию (скролл)">
+        <img src="sunline-banner.png" alt="Солнечная линия — баннер" class="hero" loading="eager" decoding="async" />
+      </figure>
+    </a>
 
     <div class="row">
       <section class="card">
